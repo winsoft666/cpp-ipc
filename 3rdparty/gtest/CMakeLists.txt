@@ -25,6 +25,11 @@ option(
   gtest_hide_internal_symbols
   "Build gtest with internal symbols hidden in shared libraries."
   OFF)
+  
+if (USE_STATIC_CRT)
+	set(gtest_force_shared_crt OFF)
+endif()
+
 
 # Defines pre_project_set_up_hermetic_build() and set_up_hermetic_build().
 include(cmake/hermetic_build.cmake OPTIONAL)

@@ -44,9 +44,13 @@
 */
 
 #ifndef IPC_EXPORT
+#ifdef __IPC_STATIC__
+#  define IPC_EXPORT
+#else
 #if defined(__IPC_LIBRARY__)
 #  define IPC_EXPORT IPC_DECL_EXPORT
 #else
 #  define IPC_EXPORT IPC_DECL_IMPORT
+#endif
 #endif
 #endif /*IPC_EXPORT*/
